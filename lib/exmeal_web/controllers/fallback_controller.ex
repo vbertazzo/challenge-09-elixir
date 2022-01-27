@@ -3,7 +3,7 @@ defmodule ExmealWeb.FallbackController do
   alias Exmeal.Error
   alias ExmealWeb.ErrorView
 
-  def call(conn, %Error{status: status, result: result}) do
+  def call(conn, {:error, %Error{status: status, result: result}}) do
     conn
     |> put_status(status)
     |> put_view(ErrorView)
