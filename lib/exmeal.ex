@@ -17,5 +17,6 @@ defmodule Exmeal do
   defdelegate create_user(params), to: CreateUser, as: :call
   defdelegate delete_user(params), to: DeleteUser, as: :call
   defdelegate get_user_by_id(params), to: GetUser, as: :by_id
+  defdelegate get_all_users(), to: GetUser, as: :all
   defdelegate update_user(params), to: UpdateUser, as: :call
 end

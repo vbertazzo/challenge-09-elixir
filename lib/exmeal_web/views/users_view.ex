@@ -9,7 +9,15 @@ defmodule ExmealWeb.UsersView do
     }
   end
 
-  def render() do
-    # TO DO
+  def render("user.json", %{user: %User{} = user}) do
+    %{
+      user: user
+    }
+  end
+
+  def render("index.json", %{users: users}) do
+    %{
+      users: users
+    }
   end
 end
