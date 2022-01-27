@@ -29,7 +29,7 @@ defmodule ExmealWeb.UsersController do
     end
   end
 
-  def index(conn, params) do
+  def index(conn, _params) do
     with {:ok, users} <- Exmeal.get_all_users() do
       conn
       |> put_status(:ok)
@@ -37,8 +37,11 @@ defmodule ExmealWeb.UsersController do
     end
   end
 
-  @spec update :: nil
-  def update() do
-    # TO DO
+  def update(conn, params) do
+    with {:ok, %User{} = user} <- Exmeal.update_user(params) do
+      conn
+      |> put_status(:ok)
+      |> render("user.json", user: user)
+    end
   end
 end
