@@ -34,6 +34,7 @@ defmodule Exmeal.Meal do
   defp validate_params(struct) do
     struct
     |> validate_required(@required_params)
+    |> foreign_key_constraint(:user_id)
     |> validate_length(:description, min: 6)
     |> validate_number(:calories, greater_than: 0)
   end
