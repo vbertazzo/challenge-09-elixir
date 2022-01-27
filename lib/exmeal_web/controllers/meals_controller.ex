@@ -13,8 +13,12 @@ defmodule ExmealWeb.MealsController do
     end
   end
 
-  def delete() do
-    # TO DO
+  def delete(conn, %{"id" => id}) do
+    with {:ok, %Meal{}} <- Exmeal.delete_meal(id) do
+      conn
+      |> put_status(:no_content)
+      |> text("")
+    end
   end
 
   def show(conn, %{"id" => id}) do
@@ -25,7 +29,7 @@ defmodule ExmealWeb.MealsController do
     end
   end
 
-  def index(conn, params) do
+  def index(conn, _params) do
     with {:ok, meals} <- Exmeal.get_all_meals() do
       conn
       |> put_status(:ok)
