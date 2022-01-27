@@ -4,7 +4,7 @@ defmodule Exmeal.Users.Delete do
   def call(id) do
     case Repo.get(User, id) do
       nil -> {:error, Error.build_user_not_found_error()}
-      user -> {:ok, Repo.delete(user)}
+      user -> Repo.delete(user)
     end
   end
 end
