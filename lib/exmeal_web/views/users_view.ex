@@ -1,8 +1,12 @@
 defmodule ExmealWeb.UsersView do
   use ExmealWeb, :view
+  alias Exmeal.User
 
-  def render() do
-    # TO DO
+  def render("create.json", %{user: %User{} = user}) do
+    %{
+      message: "User created!",
+      user: user
+    }
   end
 
   def render() do
