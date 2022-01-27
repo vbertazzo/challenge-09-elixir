@@ -37,7 +37,11 @@ defmodule ExmealWeb.MealsController do
     end
   end
 
-  def update() do
-    # TO DO
+  def update(conn, params) do
+    with {:ok, %Meal{} = meal} <- Exmeal.update_meal(params) do
+      conn
+      |> put_status(:ok)
+      |> render("meal.json", meal: meal)
+    end
   end
 end
