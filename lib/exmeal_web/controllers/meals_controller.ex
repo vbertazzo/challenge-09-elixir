@@ -4,7 +4,7 @@ defmodule ExmealWeb.MealsController do
   action_fallback FallbackController
 
   def create() do
-   # TO DO
+    # TO DO
   end
 
   def delete() do
@@ -17,4 +17,5 @@ defmodule ExmealWeb.MealsController do
 
   def update() do
     # TO DO
+  end
 end
